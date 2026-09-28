@@ -6,11 +6,10 @@
 
   const app = document.getElementById("app");
   let state = normalize(load());
-  let undoStack = [];
-  let redoStack = [];
-  let typingKey = null;
-  let saveTimer = 0;
-  let toastTimer = 0;
+let undoStack = [];
+let redoStack = [];
+let typingKey = null;
+let toastTimer = 0;
   let composing = false;
   let dragId = null;
   let sidebarOpen = window.innerWidth > 800;
@@ -48,10 +47,7 @@
   }
 
   function save() {
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(function () {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    }, 120);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
   function activePage() {
